@@ -21,6 +21,7 @@ module.exports = {
                   browsers: null,
                 },
               }],
+              '@babel/preset-react',
             ],
           },
         },

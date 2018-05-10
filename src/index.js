@@ -1,3 +1,6 @@
-// Just add some ES6 sintax to test if it works
+import React from 'react';
+import { render } from 'react-dom';
 
-const a = new Promise();
+const App = () => <h1>Hello</h1>;
+
+render(<App />, document.getElementById('root'));
