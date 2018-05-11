@@ -1,15 +1,19 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  target: 'web',
+  target: 'node',
   context: path.resolve('./src'),
-  entry: './index.js',
+  entry: './server.js',
   output: {
     path: path.resolve('./dist'),
-    filename: 'client.js',
+    filename: 'server.js',
     publicPath: '/dist/',
+    library: 'app',
+    libraryTarget: 'commonjs2',
   },
   mode: 'development',
+  externals: [nodeExternals()],
   module: {
     rules: [
       {
@@ -20,9 +24,7 @@ module.exports = {
           options: {
             presets: [
               ['@babel/preset-env', {
-                targets: {
-                  browsers: null,
-                },
+                targets: 'node',
               }],
               '@babel/preset-react',
             ],
